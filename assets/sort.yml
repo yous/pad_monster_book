@@ -1,0 +1,561 @@
+그리스로마신:
+  - grayscale: true
+    items: [122, 124, 126, 128, 130]
+  - items: [122, 124, 126, 128, 130]
+  - items: [123, 125, 127, 129, 131]
+  - items: [388, 390, 392, 394, 396]
+  - items: [389, 391, 393, 395, 397]
+  - combined: true
+    items:
+    - items: [388, 389]
+    - items: [390, 391]
+    - items: [392, 393]
+    - items: [394, 395]
+    - items: [396, 397]
+  -
+  - grayscale: true
+    items: [567, 569, 571, 573, 575]
+  - items: [567, 569, 571, 573, 575]
+  - items: [568, 570, 572, 574, 576]
+  -
+  - grayscale: true
+    items: [187, 189, 596, 598, 650]
+  - items: [187, 189, 596, 598, 650]
+  - items: [188, 190, 597, 599, 651]
+  -
+  - items:
+    - grayscale: true
+      item: 648
+    - 648
+    - 649
+일본신:
+  - grayscale: true
+    items: [132, 134, 136, 138, 140]
+  - items: [132, 134, 136, 138, 140]
+  - items: [133, 135, 137, 139, 141]
+  - items:
+    - 755
+    - 756
+    - combined: true
+      items: [755, 756]
+인도신:
+  - grayscale: true
+    items: [236, 238, 240, 242, 244]
+  - items: [236, 238, 240, 242, 244]
+  - items: [237, 239, 241, 243, 245]
+  - items: [657, 658]
+북구신:
+  - grayscale: true
+    items: [368, 370, 372, 374, 376]
+  - items: [368, 370, 372, 374, 376]
+  - items: [369, 371, 373, 375, 377]
+  - items: [652, 653, 654, 655, 656]
+  -
+  - grayscale: true
+    items: [362, 364]
+  - items: [362, 364]
+  - itmes: [363, 365]
+이집트신:
+  - grayscale: true
+    items: [490, 492, 494, 496, 498]
+  - items: [490, 492, 494, 496, 498]
+  - items: [491, 493, 495, 497, 499]
+천사:
+  - grayscale: true
+    items: [620, 622, 624, 626, 628]
+  - items: [620, 622, 624, 626, 628]
+  - items: [621, 623, 625, 627, 629]
+  -
+  - grayscale: true
+    items: [640, 642]
+  - items: [640, 642]
+  - items: [641, 643]
+악마:
+  - grayscale: true
+    items: [630, 632, 634, 636, 638]
+  - items: [630, 632, 634, 636, 638]
+  - items: [631, 633, 635, 637, 639]
+  -
+  - items:
+    - grayscale: true
+      item: 646
+    - 646
+    - 647
+사방신:
+  - grayscale: true
+    items: [745, 747, 749, 751, 753]
+  - items: [745, 747, 749, 751, 753]
+  - items: [746, 748, 750, 752, 754]
+골렘:
+  - grayscale: true
+    items: [78, 80, 82, 84, 86]
+  - items: [78, 80, 82, 84, 86]
+  - items: [79, 81, 83, 85, 87]
+  - items: [316, 317, 318, 319, 320]
+여친:
+  - grayscale: true
+    items: [88, 90, 92, 94, 96]
+  - items: [88, 90, 92, 94, 96]
+  - items: [89, 91, 93, 95, 97]
+  - items: [201, 202, 203, 204, 205]
+마검사:
+  - grayscale: true
+    items: [98, 100, 102, 104, 108]
+  - items: [98, 100, 102, 104, 108]
+  - items: [99, 101, 103, 105, 109]
+  - items: [229, 230, 231, 232, 233]
+특수마검사:
+  - grayscale: true
+    items: [106, 221, 223, 225, 110]
+  - items: [106, 221, 223, 225, 110]
+  - items: [107, 222, 224, 226, 111]
+  - items: [512, 513, 514, 515, 516]
+  - items: [692, 693, 694]
+정령족:
+  - grayscale: true
+    items: [352, 354, 356, 358, 360]
+  - items: [352, 354, 356, 358, 360]
+  - items: [353, 355, 357, 359, 361]
+라이더:
+  - grayscale: true
+    items: [378, 380, 382, 384, 386]
+  - items: [378, 380, 382, 384, 386]
+  - items: [379, 381, 383, 385, 387]
+환수:
+  - grayscale: true
+    items: [398, 400, 402, 404, 406]
+  - items: [398, 400, 402, 404, 406]
+  - items: [399, 401, 403, 405, 407]
+닌자:
+  - grayscale: true
+    items: [545, 547, 549, 551, 553]
+  - items: [545, 547, 549, 551, 553]
+  - items: [546, 548, 550, 552, 554]
+  -
+  - grayscale: true
+    items: [555, 557, 559, 561, 563]
+  - items: [555, 557, 559, 561, 563]
+  - items: [556, 558, 560, 562, 564]
+  -
+  - items:
+    - grayscale: true
+      item: 565
+    - 565
+    - 566
+시작용:
+  - grayscale: true
+    items: [1, 5, 9, 13, 17]
+  - items: [1, 5, 9, 13, 17]
+  - items: [2, 6, 10, 14, 18]
+  - items: [3, 7, 11, 15, 19]
+  - items: [4, 8, 12, 16, 20]
+  - items: [480, 481, 482, 483, 484]
+컬러용:
+  - grayscale: true
+    items: [21, 24, 27, 30, 33]
+  - items: [21, 24, 27, 30, 33]
+  - items: [22, 25, 28, 31, 34]
+  - items: [23, 26, 29, 32, 35]
+  - items: [211, 212, 213, 214, 215]
+만성용:
+  - grayscale: true
+    items: [112, 114, 116, 118, 120]
+  - items: [112, 114, 116, 118, 120]
+  - items: [113, 115, 117, 119, 121]
+  - items: [322, 323, 324, 325]
+  - items: [326, 327, 328, 329]
+  - items: [330, 331, 332, 333]
+  - items: [334, 335, 336, 337]
+  - items: [338, 339, 340, 341]
+전설용:
+  - grayscale: true
+    items: [142, 143, 144, 145, 146]
+  - items: [142, 143, 144, 145, 146]
+  - items: [408, 409, 410, 411, 412]
+  -
+  - items:
+    - grayscale: true
+      item: 413
+    - 413
+천공용:
+  - grayscale: true
+    items: [216, 217, 218, 219, 220]
+  - items: [216, 217, 218, 219, 220]
+  - items: [772, 773, 774, 775, 776]
+기계용:
+  - grayscale: true
+    items: [283, 284, 285, 286, 287]
+  - items: [283, 284, 285, 286, 287]
+완구용:
+  - grayscale: true
+    items: [288, 291, 294, 297, 300]
+  - items: [288, 291, 294, 297, 300]
+  - items: [289, 292, 295, 298, 301]
+  - items: [290, 293, 296, 299, 302]
+  - items: [757, 758, 759, 760, 761]
+역룡:
+  - grayscale: true
+    items: [441, 442, 443, 444, 445]
+  - items: [441, 442, 443, 444, 445]
+노엘드래곤:
+  - grayscale: true
+    items: [517, 518, 519]
+  - items: [517, 518, 519]
+  - items: [520, 521, 522]
+전국룡:
+  - grayscale: true
+    items: [540, 541, 542, 543, 544]
+  - items: [540, 541, 542, 543, 544]
+금속룡:
+  - grayscale: true
+    items: [737, 738, 739, 740, 741]
+  - items: [737, 738, 739, 740, 741]
+신비용:
+  - items:
+    - grayscale: true
+      item: 782
+    - 782
+링:
+  - grayscale: true
+    items: [36, 38, 40, 42, 44]
+  - items: [36, 38, 40, 42, 44]
+  - items: [37, 39, 41, 43, 45]
+  - items: [684, 685, 686, 687, 688]
+카벙클:
+  - grayscale: true
+    items: [46, 48, 50, 52, 54]
+  - items: [46, 48, 50, 52, 54]
+  - items: [47, 49, 51, 53, 55]
+  - items: [206, 207, 208, 209, 210]
+고블린:
+  - grayscale: true
+    items: [56, 58, 60]
+  - items: [56, 58, 60]
+  - items: [57, 59, 61]
+  - items: [689, 690, 691]
+오거:
+  - grayscale: true
+    items: [62, 64, 66]
+  - items: [62, 64, 66]
+  - items: [63, 65, 67]
+  - items:
+    - 310
+    - 311
+    - combined: true
+      items: [310, 311]
+  - items:
+    - 312
+    - 313
+    - combined: true
+      items: [312, 313]
+  - items:
+    - 314
+    - 315
+    - combined: true
+      items: [312, 313]
+  - items:
+    - 314
+    - 315
+    - combined: true
+      items: [314, 315]
+파이터:
+  - grayscale: true
+    items: [68, 70, 72, 74, 76]
+  - items: [68, 70, 72, 74, 76]
+  - items: [69, 71, 73, 75, 77]
+데빌:
+  - grayscale: true
+    items: [191, 193, 195, 197, 199]
+  - items: [191, 193, 195, 197, 199]
+  - items: [192, 194, 196, 198, 200]
+  - items: [475, 476, 477, 478, 479]
+키메라:
+  - grayscale: true
+    items: [262, 264, 266, 268, 270]
+  - items: [262, 264, 266, 268, 270]
+  - items: [263, 265, 267, 269, 271]
+진화용:
+  - items: [147, 148, 149, 150, 151, 321]
+  - items: [152, 153, 154, 227]
+  - items: [155, 156, 157, 158, 159, 160]
+  - items: [161, 162, 163, 164, 165]
+  - items: [166, 167, 168, 169, 170]
+  - items: [171, 172, 173, 174, 175, 234]
+  - items: [246, 247, 248, 249, 250, 251]
+  - items: [432, 434, 436]
+  - items: [469, 470, 471, 472, 473, 474]
+  - items: [679, 680]
+강화합성용:
+  - items: [252, 255, 258, 179, 176]
+  - items: [253, 256, 259, 180, 177]
+  - items: [254, 257, 260, 181, 178]
+  - items: [617, 618, 619, 309, 261]
+  - items: [430, 429]
+  - items: [589, 590]
+  - items: [303, 305, 307, 600, 602]
+  - items: [304, 306, 308, 601, 603]
+  - items: [523, 524, 525, 577, 578]
+  - items: [182, 183, 184, 185, 186]
+  - items: [593, 594, 595]
+  - items: [235, 485]
+  - items: [517, 518, 519]
+  - items: [520, 521, 522]
+  - items: [681]
+그 외:
+  - items:
+    - grayscale: true
+      item: 235
+    - 235
+    - grayscale: true
+      item: 485
+    - 485
+  - items:
+    - grayscale: true
+      item: 350
+    - 350
+    - 351
+  - items:
+    - grayscale: true
+      item: 366
+    - 366
+    - 367
+  - grayscale: true
+    items: [414, 417, 420, 423, 426]
+  - items: [414, 417, 420, 423, 426]
+  - items: [415, 418, 421, 424, 427]
+  - items: [416, 419, 422, 425, 428]
+  - items:
+    - grayscale: true
+      item: 430
+    - 430
+  - items:
+    - grayscale: true
+      item: 429
+    - 429
+  - items:
+    - grayscale: true
+      item: 486
+    - 486
+    - 487
+  - items:
+    - grayscale: 488
+      item: 488
+    - 488
+    - 489
+  - grayscale: true
+    items: [579, 581, 583, 585, 587]
+  - items: [579, 581, 583, 585, 587]
+  - items: [580, 582, 584, 586, 588]
+  - items:
+    - grayscale: true
+      item: 659
+    - 659
+    - 660
+  - items:
+    - grayscale: true
+      item: 682
+    - 682
+    - 683
+  - items:
+    - grayscale: true
+      item: 717
+    - 717
+  - items:
+    - grayscale: true
+      item: 718
+    - 718
+  - items:
+    - grayscale: true
+      item: 742
+    - 742
+    - 743
+    - 744
+  - items:
+    - grayscale: true
+      item: 777
+    - 777
+    - 778
+  - items:
+    - grayscale: true
+      item: 779
+    - 779
+  - items:
+    - grayscale: true
+      item: 787
+    - 787
+    - 788
+포링:
+  - grayscale: true
+    items: [182, 183, 184, 185, 186]
+  - items: [182, 183, 184, 185, 186]
+  - items: [228]
+  -
+  - items:
+    - grayscale: true
+      item: 593
+    - 593
+태고의 달인 콜라보:
+  - grayscale: true
+    items: [272, 274, 276, 278]
+  - items: [272, 274, 276, 278]
+  - items: [273, 275, 277, 279]
+  -
+  - items:
+    - grayscale: true
+      item: 280
+    - 280
+    - 281
+    - 282
+  - items:
+    - grayscale: true
+      item: 604
+    - 604
+    - 605
+    - 606
+ECO 콜라보:
+  - grayscale: true
+    items: [342, 344, 346, 667]
+  - items: [342, 344, 346, 667]
+  - items: [343, 345, 347, 668]
+  -
+  - items:
+    - grayscale: true
+      item: 348
+    - 348
+    - 349
+    - 666
+군마 콜라보:
+  - grayscale: true
+    items: [431, 433, 435]
+  - items: [431, 433, 435]
+  - items: [432, 434, 436]
+  -
+  - items:
+    - grayscale: true
+      item: 437
+    - 437
+    - 438
+    - 439
+    - 440
+CD 콜라보:
+  - items:
+    - grayscale: true
+      item: 446
+    - 446
+    - 732
+    - 733
+    - 734
+  -
+  - grayscale: true
+    items: [447, 449]
+  - items: [447, 449]
+  - items: [448, 450]
+  -
+  - grayscale: true
+    items: [451, 453, 455, 457, 459]
+  - items: [451, 453, 455, 457, 459]
+  - items: [452, 454, 456, 458, 460]
+  -
+  - grayscale: true
+    items: [461, 465, 467]
+  - items: [461, 465, 467]
+  - items: [462, 466, 468]
+  -
+  - items:
+    - grayscale: true
+      item: 463
+    - 463
+    - 464
+    - 736
+  -
+  - grayscale: true
+    items: [469, 470, 471, 472, 473, 474]
+  - items: [469, 470, 471, 472, 473, 474]
+  -
+  - grayscale: true
+    items: [526, 528, 530]
+  - items: [526, 528, 530]
+  - items: [527, 529, 531]
+  -
+  - grayscale: true
+    items: [532, 534, 536, 538]
+  - items: [532, 534, 536, 538]
+  - items: [533, 535, 537, 539]
+  -
+  - items:
+    - grayscale: true
+      item: 591
+    - 591
+    - 592
+    - 735
+케리공주 콜라보:
+  - items:
+    - grayscale: true
+      item: 500
+    - 500
+    - 501
+  -
+  - grayscale: true
+    items: [502, 504, 506, 508, 510]
+  - items: [502, 504, 506, 508, 510]
+  - items: [503, 505, 507, 509, 511]
+세븐일레븐 콜라보:
+  - grayscale: true
+    items: [589, 590]
+  - items: [589, 590]
+겅호 콜라보:
+  - grayscale: true
+    items: [594, 595]
+  - items: [594, 595]
+  -
+  - grayscale: true
+    items: [662, 664]
+  - items: [662, 664]
+  - items: [663, 665]
+카피바라씨 콜라보:
+  - grayscale: true
+    items: [607, 609, 611, 613, 615]
+  - items: [607, 609, 611, 613, 615]
+  - items: [608, 610, 612, 614, 616]
+신라만상 초코 콜라보:
+  - grayscale: true
+    items: [669, 671, 673, 675, 677]
+  - items: [669, 671, 673, 675, 677]
+  - items: [670, 672, 674, 676, 678]
+  - items: [715, 716]
+  -
+  - grayscale: true
+    items: [679, 680]
+  - items: [679, 680]
+EVA 콜라보:
+  - grayscale: true
+    items: [695, 697, 699, 701, 703]
+  - items: [695, 697, 699, 701, 703]
+  - items: [696, 698, 700, 702, 704]
+  -
+  - items:
+    - grayscale: true
+      item: 705
+    - 705
+    - 706
+  -
+  - grayscale: true
+    items: [707, 709, 713, 711]
+  - items: [707, 709, 713, 711]
+  - items: [708, 710, 714, 712]
+CoC 콜라보:
+  - grayscale: true
+    items: [720, 722, 724, 726, 728]
+  - items: [720, 722, 724, 726, 728]
+  - items: [721, 723, 725, 727, 729]
+  -
+  - items:
+    - grayscale: true
+      item: 730
+    - 730
+    - 731
+GROOVE COASTER 콜라보:
+  - grayscale: true
+    items: [762, 764, 766, 768, 770]
+  - items: [762, 764, 766, 768, 770]
+  - items: [763, 765, 767, 769, 771]
