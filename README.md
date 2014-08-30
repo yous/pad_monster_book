@@ -2,7 +2,7 @@
 
 The monster book for [Puzzle & Dragons](http://www.gungho.jp/pad/).
 
-# License
+## License
 
 Copyright (c) 2014 ChaYoung You. See [LICENSE.txt](LICENSE.txt) for details.
 
