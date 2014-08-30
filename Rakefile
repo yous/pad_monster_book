@@ -12,3 +12,8 @@ task :update do
   File.open(dictionary_file, 'wb') { |f| f.write(res.body) }
   puts 'Done.'
 end
+
+require 'rubocop/rake_task'
+RuboCop::RakeTask.new(:rubocop)
+
+task default: :rubocop
