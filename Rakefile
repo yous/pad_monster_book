@@ -19,6 +19,11 @@ task :update do
   puts 'Getting the dictionary file from puzzledragonx.com...'
   response = http_get(
     'http://www.puzzledragonx.com/en/script/autocomplete/dictionary.txt')
+  dictionary = File.open(asset_file('dictionary.txt'), 'rb') { |f| f.read }
+  if response == dictionary
+    puts 'Already up-to-date.'
+    exit
+  end
   File.open(asset_file('dictionary.txt'), 'wb') { |f| f.write(response) }
   puts 'Done.'
 end
@@ -69,6 +74,10 @@ task :grayscale do
     end
   end
 
+  if grayscale_monster.empty?
+    puts 'Already up-to-date.'
+    exit
+  end
   puts 'Generating grayscale icons...'
   grayscale_monster.each do |monster_id|
     image = Magick::ImageList.new(asset_file("icons/#{monster_id}.png"))
