@@ -37,6 +37,48 @@ task :download do
   puts 'Done.'
 end
 
+desc 'Generate grayscale icons'
+task :grayscale do
+  require 'yaml'
+  require 'RMagick'
+
+  # Read from sort.yml to get the list of grayscale monster.
+  grayscale_monster = []
+  monster_sort = YAML.load(File.read(asset_file('sort.yml')))
+  monster_sort.values.flatten(1).each do |monster_row|
+    # -
+    next unless monster_row
+    # - grayscale: true
+    #   items: [122, 124, 126, 128, 130]
+    if monster_row['grayscale']
+      monster_row['items'].each do |monster_id|
+        unless File.exist?("icons/grayscale/#{monster_id}.png")
+          grayscale_monster << monster_id
+        end
+      end
+    # - items:
+    #   - grayscale: true
+    #     item: 648
+    elsif !monster_row['combined']
+      monster_row['items'].select { |x| x.is_a?(Hash) && x['grayscale'] }
+        .each do |monster|
+        unless File.exist?("icons/grayscale/#{monster['item']}.png")
+          grayscale_monster << monster['item']
+        end
+      end
+    end
+  end
+
+  puts 'Generating grayscaled icons...'
+  grayscale_monster.each do |monster_id|
+    image = Magick::ImageList.new(asset_file("icons/#{monster_id}.png"))
+    grayscaled_image = image.cur_image.quantize(256, Magick::GRAYColorspace,
+                                                Magick::NoDitherMethod)
+    grayscaled_image.write(asset_file("icons/grayscale/#{monster_id}.png"))
+  end
+  puts 'Done.'
+end
+
 require 'rubocop/rake_task'
 RuboCop::RakeTask.new(:rubocop)
 
