@@ -69,12 +69,12 @@ task :grayscale do
     end
   end
 
-  puts 'Generating grayscaled icons...'
+  puts 'Generating grayscale icons...'
   grayscale_monster.each do |monster_id|
     image = Magick::ImageList.new(asset_file("icons/#{monster_id}.png"))
-    grayscaled_image = image.cur_image.quantize(256, Magick::GRAYColorspace,
-                                                Magick::NoDitherMethod)
-    grayscaled_image.write(asset_file("icons/grayscale/#{monster_id}.png"))
+    grayscale_image = image.cur_image.quantize(256, Magick::GRAYColorspace,
+                                               Magick::NoDitherMethod)
+    grayscale_image.write(asset_file("icons/grayscale/#{monster_id}.png"))
   end
   puts 'Done.'
 end
