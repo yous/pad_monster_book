@@ -14,6 +14,77 @@ def http_get(url)
   response.body
 end
 
+def monster_link(monster_id, grayscale: false, combined: false)
+  if combined
+    %(<img src="#{monster_icon_link(monster_id, combined: true)}">)
+  else
+    '<a class="tig-tooltip tig-tooltip-pad-info-monster-extended" ' \
+      "tigcode=\"#{monster_id}\" " \
+      'href="http://www.thisisgame.com/pad/info/monster/detail.php' \
+      "?code=#{monster_id}\">" \
+      "<img src=\"#{monster_icon_link(monster_id, grayscale: grayscale)}\"></a>"
+  end
+end
+
+def monster_icon_link(monster_id, grayscale: false, combined: false)
+  if combined
+    'https://raw.githubusercontent.com/yous/pad_monster_book/master/' \
+      "assets/icons/combined/#{monster_id.join('_')}.png"
+  else
+    'https://raw.githubusercontent.com/yous/pad_monster_book/master/' \
+      "assets/icons/#{'grayscale/' if grayscale}#{monster_id}.png"
+  end
+end
+
+def process(item, sort)
+  case item
+  when nil
+    ''
+  when String
+    item
+  when Array
+    item.map { |x| process(x, sort) }.join
+  when Hash
+    process_hash(item, sort)
+  end
+end
+
+def process_hash(item, sort)
+  case item.keys.first
+  when 'box' then %(<h4 class="pad-title7 w430 cyan1">#{item['box']}</h4>)
+  when 'link' then %(<a href="#{item['link']}">#{item['link']}</a>)
+  when 'anchor' then %(<a href="##{item['anchor']}">#{item['anchor']}</a>)
+  when 'sort'
+    %(<a name="#{item['sort']}">&nbsp;</a>) +
+      %(<h4 class="pad-title7 w430 cyan1">#{item['sort']}</h4><br>) +
+      process_sort(sort[item['sort']])
+  end
+end
+
+def process_sort(sort)
+  sort.map { |monster_row| process_sort_row(monster_row) + '<br>' }.join
+end
+
+def process_sort_row(row)
+  return '' unless row
+  if row['grayscale']
+    row['items'].map { |id| monster_link(id, grayscale: true) }.join
+  elsif row['combined']
+    row['items'].map { |ids| monster_link(ids['items'], combined: true) }.join
+  else
+    row['items'].map { |monster| process_sort_item(monster) }.join
+  end
+end
+
+def process_sort_item(monster)
+  return monster_link(monster) if monster.is_a?(Fixnum)
+  if monster['grayscale']
+    monster_link(monster['item'], grayscale: true)
+  elsif monster['combined']
+    monster_link(monster['items'], combined: true)
+  end
+end
+
 desc 'Update the monster dictionary file by getting from puzzledragonx.com'
 task :update do
   puts 'Getting the dictionary file from puzzledragonx.com...'
@@ -146,6 +217,27 @@ task :combine do
     end
     above_image.write(asset_file("icons/combined/#{monster_ids.join('_')}.png"))
   end
+  puts 'Done.'
+end
+
+desc 'Generate article based on article.yml'
+task :generate do
+  require 'yaml'
+  puts 'Generating article...'
+  article = YAML.load(File.read(asset_file('article.yml')))
+  sort = YAML.load(File.read(asset_file('sort.yml')))
+  generated_article = ''
+  article.each do |line|
+    generated_article << process(line, sort)
+    generated_article << '<br>'
+  end
+
+  article_html = File.read(asset_file('article.html'))
+  if generated_article == article_html
+    puts 'Already up-to-date.'
+    exit
+  end
+  File.open(asset_file('article.html'), 'wb') { |f| f.write(generated_article) }
   puts 'Done.'
 end
 
