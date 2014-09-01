@@ -57,9 +57,8 @@ task :grayscale do
     #   items: [122, 124, 126, 128, 130]
     if monster_row['grayscale']
       monster_row['items'].each do |monster_id|
-        unless File.exist?(asset_file("icons/grayscale/#{monster_id}.png"))
-          grayscale_monster << monster_id
-        end
+        next if File.exist?(asset_file("icons/grayscale/#{monster_id}.png"))
+        grayscale_monster << monster_id
       end
     # - items:
     #   - grayscale: true
@@ -67,9 +66,9 @@ task :grayscale do
     elsif !monster_row['combined']
       monster_row['items'].select { |x| x.is_a?(Hash) && x['grayscale'] }
         .each do |monster|
-        unless File.exist?(asset_file("icons/grayscale/#{monster['item']}.png"))
-          grayscale_monster << monster['item']
-        end
+        next if File.exist?(
+          asset_file("icons/grayscale/#{monster['item']}.png"))
+        grayscale_monster << monster['item']
       end
     end
   end
