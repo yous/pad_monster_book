@@ -70,7 +70,7 @@ def process_sort_row(row)
   if row['grayscale']
     row['items'].map { |id| monster_link(id, grayscale: true) }.join
   elsif row['combined']
-    row['items'].map { |ids| monster_link(ids['items'], combined: true) }.join
+    row['items'].map { |ids| monster_link(ids, combined: true) }.join
   else
     row['items'].map { |monster| process_sort_item(monster) }.join
   end
@@ -81,7 +81,7 @@ def process_sort_item(monster)
   if monster['grayscale']
     monster_link(monster['item'], grayscale: true)
   elsif monster['combined']
-    monster_link(monster['items'], combined: true)
+    monster_link(monster['item'], combined: true)
   end
 end
 
@@ -171,23 +171,23 @@ task :combine do
     next unless monster_row
     # - combined: true
     #   items:
-    #   - items: [388, 389]
-    #   - items: [390, 391]
+    #   - [388, 389]
+    #   - [390, 391]
     if monster_row['combined']
       monster_row['items'].each do |combined|
         next if File.exist?(
-          asset_file("icons/combined/#{combined['items'].join('_')}.png"))
-        combined_icons << combined['items']
+          asset_file("icons/combined/#{combined.join('_')}.png"))
+        combined_icons << combined
       end
     # - items:
     #   - combined: true
-    #     items: [755, 756]
+    #     item: [755, 756]
     elsif !monster_row['grayscale']
       monster_row['items'].select { |x| x.is_a?(Hash) && x['combined'] }
         .each do |monster|
         next if File.exist?(
-          asset_file("icons/combined/#{monster['items'].join('_')}.png"))
-        combined_icons << monster['items']
+          asset_file("icons/combined/#{monster['item'].join('_')}.png"))
+        combined_icons << monster['item']
       end
     end
   end
