@@ -5,13 +5,6 @@
   - items: [123, 125, 127, 129, 131]
   - items: [388, 390, 392, 394, 396]
   - items: [389, 391, 393, 395, 397]
-  - combined: true
-    items:
-    - [388, 389]
-    - [390, 391]
-    - [392, 393]
-    - [394, 395]
-    - [396, 397]
   -
   - grayscale: true
     items: [567, 569, 571, 573, 575]
@@ -36,8 +29,6 @@
   - items:
     - 755
     - 756
-    - combined: true
-      item: [755, 756]
 인도신:
   - grayscale: true
     items: [236, 238, 240, 242, 244]
@@ -241,23 +232,15 @@
   - items:
     - 310
     - 311
-    - combined: true
-      item: [310, 311]
   - items:
     - 312
     - 313
-    - combined: true
-      item: [312, 313]
   - items:
     - 314
     - 315
-    - combined: true
-      item: [312, 313]
   - items:
     - 314
     - 315
-    - combined: true
-      item: [314, 315]
 파이터:
   - grayscale: true
     items: [68, 70, 72, 74, 76]

@@ -21,31 +21,26 @@ def http_get(url)
   response.body
 end
 
-def monster_link(monster_id, grayscale: false, combined: false)
-  if combined
-    %(<img src="#{monster_icon_link(monster_id, combined: true)}">)
+def monster_link(monster_id, grayscale: false)
+  '<a class="tig-tooltip tig-tooltip-pad-info-monster-extended" ' \
+    "tigcode=\"#{monster_id}\" " \
+    'href="http://www.thisisgame.com/pad/info/monster/detail.php' \
+    "?code=#{monster_id}\">" \
+    "<img src=\"#{monster_icon_link(monster_id, grayscale: grayscale)}\"></a>"
+end
+
+def monster_icon(monster_id, grayscale: false)
+  icon_file = MAP.fetch(monster_id, monster_id)
+  if grayscale
+    "icons/grayscale/#{icon_file}.png"
   else
-    '<a class="tig-tooltip tig-tooltip-pad-info-monster-extended" ' \
-      "tigcode=\"#{monster_id}\" " \
-      'href="http://www.thisisgame.com/pad/info/monster/detail.php' \
-      "?code=#{monster_id}\">" \
-      "<img src=\"#{monster_icon_link(monster_id, grayscale: grayscale)}\"></a>"
+    "icons/#{icon_file}.png"
   end
 end
 
-def monster_icon(monster_id, grayscale: false, combined: false)
-  if combined
-    icon_file = monster_id.map { |id| MAP.fetch(id, id) }.join('_')
-    "icons/combined/#{icon_file}.png"
-  else
-    icon_file = MAP.fetch(monster_id, monster_id)
-    "icons/#{'grayscale/' if grayscale}#{icon_file}.png"
-  end
-end
-
-def monster_icon_link(monster_id, grayscale: false, combined: false)
+def monster_icon_link(monster_id, grayscale: false)
   'https://raw.githubusercontent.com/yous/pad_monster_book/master/assets/' +
-    monster_icon(monster_id, grayscale: grayscale, combined: combined)
+    monster_icon(monster_id, grayscale: grayscale)
 end
 
 def process(item)
@@ -81,19 +76,16 @@ def process_sort_row(row)
   return '' unless row
   if row['grayscale']
     row['items'].map { |id| monster_link(id, grayscale: true) }.join
-  elsif row['combined']
-    row['items'].map { |ids| monster_link(ids, combined: true) }.join
   else
     row['items'].map { |monster| process_sort_item(monster) }.join
   end
 end
 
 def process_sort_item(monster)
-  return monster_link(monster) if monster.is_a?(Fixnum)
-  if monster['grayscale']
+  if monster.is_a?(Fixnum)
+    monster_link(monster)
+  elsif monster['grayscale']
     monster_link(monster['item'], grayscale: true)
-  elsif monster['combined']
-    monster_link(monster['item'], combined: true)
   end
 end
 
@@ -143,7 +135,7 @@ task :grayscale do
     # - items:
     #   - grayscale: true
     #     item: 648
-    elsif !monster_row['combined']
+    else
       monster_row['items'].select { |x| x.is_a?(Hash) && x['grayscale'] }
         .each do |monster|
         next if File.exist?(
@@ -163,64 +155,6 @@ task :grayscale do
     grayscale_image = image.cur_image.quantize(256, Magick::GRAYColorspace,
                                                Magick::NoDitherMethod)
     grayscale_image.write(asset_file(monster_icon(monster_id, grayscale: true)))
-  end
-  puts 'Done.'
-end
-
-desc 'Generate combined icons'
-task :combine do
-  # Get the list of combined icon.
-  combined_icons = []
-  SORT.values.flatten(1).each do |monster_row|
-    # -
-    next unless monster_row
-    # - combined: true
-    #   items:
-    #   - [388, 389]
-    #   - [390, 391]
-    if monster_row['combined']
-      monster_row['items'].each do |combined|
-        next if File.exist?(
-          asset_file(monster_icon(combined, combined: true)))
-        combined_icons << combined
-      end
-    # - items:
-    #   - combined: true
-    #     item: [755, 756]
-    elsif !monster_row['grayscale']
-      monster_row['items'].select { |x| x.is_a?(Hash) && x['combined'] }
-        .each do |monster|
-        next if File.exist?(
-          asset_file(monster_icon(monster['item'], combined: true)))
-        combined_icons << monster['item']
-      end
-    end
-  end
-
-  if combined_icons.empty?
-    puts 'Already up-to-date.'
-    exit
-  end
-  puts 'Generating combined icons...'
-  combined_icons.each do |monster_ids|
-    above_id, below_id = monster_ids
-    above_image = Magick::ImageList.new(asset_file(monster_icon(above_id)))
-    below_image = Magick::ImageList.new(asset_file(monster_icon(below_id)))
-
-    unless above_image.columns == below_image.columns &&
-      above_image.rows == below_image.rows
-      warn 'Images have different size: ' \
-        "#{above_id}: #{above_image.columns}x#{above_image.rows}, " \
-        "#{below_id}: #{below_image.columns}x#{below_image.rows}"
-      next
-    end
-
-    above_image.rows.times do |y|
-      above_image.columns.times.select { |x| x <= y }.each do |x|
-        above_image.pixel_color(x, y, below_image.pixel_color(x, y))
-      end
-    end
-    above_image.write(asset_file(monster_icon(monster_ids, combined: true)))
   end
   puts 'Done.'
 end
