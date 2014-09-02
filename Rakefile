@@ -177,6 +177,21 @@ task :generate do
   puts 'Done.'
 end
 
+desc 'Print the difference of monsters in sort.yml and icon list'
+task :diff do
+  icons = Dir["#{asset_file('icons/*.png')}"].map do |path|
+    path.gsub(/^.*\/(\d+)\.png/, '\\1').to_i
+  end
+  sorted_monsters = []
+  SORT.values.flatten(1).each do |row|
+    next if row.nil? || row['grayscale']
+    sorted_monsters.concat(row['items'].select { |x| x.is_a?(Fixnum) })
+  end
+  sorted_monsters.map! { |id| MAP.fetch(id, id) }
+  puts "icons only: #{(icons - sorted_monsters).sort}"
+  puts "sort.yml only: #{(sorted_monsters - icons).sort}"
+end
+
 require 'rubocop/rake_task'
 RuboCop::RakeTask.new(:rubocop)
 
