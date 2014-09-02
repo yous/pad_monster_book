@@ -14,7 +14,7 @@
 - ['- ', anchor: 그리스로마신]
 - ['- ', anchor: 일본신]
 - ['- ', anchor: 인도신]
-- ['- ', anchor: 북구신]
+- ['- ', anchor: 북유럽신]
 - ['- ', anchor: 이집트신]
 - ['- ', anchor: 천사]
 - ['- ', anchor: 악마]
@@ -27,8 +27,9 @@
 - ['- ', anchor: 정령족]
 - ['- ', anchor: 라이더]
 - ['- ', anchor: 환수]
--
 - ['- ', anchor: 닌자]
+- ['- ', anchor: 특수회복]
+-
 - ['- ', anchor: 시작용]
 - ['- ', anchor: 컬러용]
 - ['- ', anchor: 만성용]
@@ -38,9 +39,12 @@
 - ['- ', anchor: 완구용]
 - ['- ', anchor: 역룡]
 - ['- ', anchor: 노엘드래곤]
-- ['- ', anchor: 전국룡]
+- ['- ', anchor: 무사룡]
 - ['- ', anchor: 금속룡]
 - ['- ', anchor: 신비용]
+- ['- ', anchor: 해적용]
+- ['- ', anchor: 과일용]
+- ['- ', anchor: 화룡]
 -
 - ['- ', anchor: 링]
 - ['- ', anchor: 카벙클]
@@ -53,7 +57,7 @@
 - ['- ', anchor: 강화합성용]
 - ['- ', anchor: 그 외]
 -
-- ['- ', anchor: 포링]
+- ['- ', anchor: 포링의 탑]
 - ['- ', anchor: 태고의 달인 콜라보]
 - ['- ', anchor: ECO 콜라보]
 - ['- ', anchor: 군마 콜라보]
@@ -62,13 +66,22 @@
 - ['- ', anchor: 세븐일레븐 콜라보]
 - ['- ', anchor: 겅호 콜라보]
 - ['- ', anchor: 신라만상 초코 콜라보]
-- ['- ', anchor: EVA 콜라보]
+- ['- ', anchor: 에반게리온 콜라보]
 - ['- ', anchor: CoC 콜라보]
+- ['- ', anchor: GROOVE COASTER 콜라보]
+- ['- ', anchor: 다카오카시 콜라보]
+- ['- ', anchor: DDQ 콜라보]
+- ['- ', anchor: 아이루 바자회 콜라보]
+- ['- ', anchor: 배트맨 콜라보]
+- ['- ', anchor: 베스킨라빈스 콜라보]
+- ['- ', anchor: 앵그리버드 콜라보]
+- ['- ', anchor: 헌터X헌터 콜라보]
+- ['- ', anchor: 헬로키티 콜라보]
 -
 - sort: 그리스로마신
 - sort: 일본신
 - sort: 인도신
-- sort: 북구신
+- sort: 북유럽신
 - sort: 이집트신
 - sort: 천사
 - sort: 악마
@@ -81,8 +94,9 @@
 - sort: 정령족
 - sort: 라이더
 - sort: 환수
--
 - sort: 닌자
+- sort: 특수회복
+-
 - sort: 시작용
 - sort: 컬러용
 - sort: 만성용
@@ -92,9 +106,12 @@
 - sort: 완구용
 - sort: 역룡
 - sort: 노엘드래곤
-- sort: 전국룡
+- sort: 무사룡
 - sort: 금속룡
 - sort: 신비용
+- sort: 해적용
+- sort: 과일용
+- sort: 화룡
 -
 - sort: 링
 - sort: 카벙클
@@ -105,9 +122,10 @@
 - sort: 키메라
 - sort: 진화용
 - sort: 강화합성용
+- sort: 능력각성
 - sort: 그 외
 -
-- sort: 포링
+- sort: 포링의 탑
 - sort: 태고의 달인 콜라보
 - sort: ECO 콜라보
 - sort: 군마 콜라보
@@ -116,5 +134,14 @@
 - sort: 세븐일레븐 콜라보
 - sort: 겅호 콜라보
 - sort: 신라만상 초코 콜라보
-- sort: EVA 콜라보
+- sort: 에반게리온 콜라보
 - sort: CoC 콜라보
+- sort: GROOVE COASTER 콜라보
+- sort: 다카오카시 콜라보
+- sort: DDQ 콜라보
+- sort: 아이루 바자회 콜라보
+- sort: 배트맨 콜라보
+- sort: 베스킨라빈스 콜라보
+- sort: 앵그리버드 콜라보
+- sort: 헌터X헌터 콜라보
+- sort: 헬로키티 콜라보
