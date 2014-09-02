@@ -212,7 +212,7 @@ task :combine do
       warn 'Images have different size: ' \
         "#{above_id}: #{above_image.columns}x#{above_image.rows}, " \
         "#{below_id}: #{below_image.columns}x#{below_image.rows}"
-      exit
+      next
     end
 
     above_image.rows.times do |y|
