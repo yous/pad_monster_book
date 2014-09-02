@@ -1,7 +1,9 @@
 # encoding: utf-8
 
 require 'json'
+require 'yaml'
 require 'net/http'
+require 'RMagick'
 
 def asset_file(file_name)
   File.expand_path("../assets/#{file_name}", __FILE__)
@@ -115,9 +117,6 @@ end
 
 desc 'Generate grayscale icons'
 task :grayscale do
-  require 'yaml'
-  require 'RMagick'
-
   # Read from sort.yml to get the list of grayscale monster.
   grayscale_monster = []
   monster_sort = YAML.load(File.read(asset_file('sort.yml')))
@@ -160,9 +159,6 @@ end
 
 desc 'Generate combined icons'
 task :combine do
-  require 'yaml'
-  require 'RMagick'
-
   # Read from sort.yml to get the list of combined icon.
   combined_icons = []
   monster_sort = YAML.load(File.read(asset_file('sort.yml')))
@@ -222,7 +218,6 @@ end
 
 desc 'Generate article based on article.yml'
 task :generate do
-  require 'yaml'
   puts 'Generating article...'
   article = YAML.load(File.read(asset_file('article.yml')))
   sort = YAML.load(File.read(asset_file('sort.yml')))
