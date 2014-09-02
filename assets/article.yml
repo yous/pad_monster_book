@@ -69,6 +69,7 @@
 - ['- ', anchor: 에반게리온 콜라보]
 - ['- ', anchor: CoC 콜라보]
 - ['- ', anchor: GROOVE COASTER 콜라보]
+- ['- ', anchor: 라그나로크 오딧세이 콜라보]
 - ['- ', anchor: 다카오카시 콜라보]
 - ['- ', anchor: DDQ 콜라보]
 - ['- ', anchor: 아이루 바자회 콜라보]
@@ -77,6 +78,9 @@
 - ['- ', anchor: 앵그리버드 콜라보]
 - ['- ', anchor: 헌터X헌터 콜라보]
 - ['- ', anchor: 헬로키티 콜라보]
+- ['- ', anchor: 라그나로크 온라인 콜라보]
+- ['- ', anchor: BEAMS 콜라보]
+- ['- ', anchor: 드래곤볼 콜라보]
 -
 - sort: 그리스로마신
 - sort: 일본신
@@ -137,6 +141,7 @@
 - sort: 에반게리온 콜라보
 - sort: CoC 콜라보
 - sort: GROOVE COASTER 콜라보
+- sort: 라그나로크 오딧세이 콜라보
 - sort: 다카오카시 콜라보
 - sort: DDQ 콜라보
 - sort: 아이루 바자회 콜라보
@@ -145,3 +150,6 @@
 - sort: 앵그리버드 콜라보
 - sort: 헌터X헌터 콜라보
 - sort: 헬로키티 콜라보
+- sort: 라그나로크 온라인 콜라보
+- sort: BEAMS 콜라보
+- sort: 드래곤볼 콜라보
