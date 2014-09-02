@@ -9,6 +9,10 @@ def asset_file(file_name)
   File.expand_path("../assets/#{file_name}", __FILE__)
 end
 
+# Load constants from YAML files.
+SORT    = YAML.load(File.read(asset_file('sort.yml')))
+ARTICLE = YAML.load(File.read(asset_file('article.yml')))
+
 def http_get(url)
   url = URI.parse(url)
   req = Net::HTTP::Get.new(url.to_s)
@@ -38,20 +42,20 @@ def monster_icon_link(monster_id, grayscale: false, combined: false)
   end
 end
 
-def process(item, sort)
+def process(item)
   case item
   when nil
     ''
   when String
     item
   when Array
-    item.map { |x| process(x, sort) }.join
+    item.map { |x| process(x) }.join
   when Hash
-    process_hash(item, sort)
+    process_hash(item)
   end
 end
 
-def process_hash(item, sort)
+def process_hash(item)
   case item.keys.first
   when 'box' then %(<h4 class="pad-title7 w430 cyan1">#{item['box']}</h4>)
   when 'link' then %(<a href="#{item['link']}">#{item['link']}</a>)
@@ -59,7 +63,7 @@ def process_hash(item, sort)
   when 'sort'
     %(<a name="#{item['sort']}">&nbsp;</a>) +
       %(<h4 class="pad-title7 w430 cyan1">#{item['sort']}</h4><br>) +
-      process_sort(sort[item['sort']])
+      process_sort(SORT[item['sort']])
   end
 end
 
@@ -117,10 +121,9 @@ end
 
 desc 'Generate grayscale icons'
 task :grayscale do
-  # Read from sort.yml to get the list of grayscale monster.
+  # Get the list of grayscale monster.
   grayscale_monster = []
-  monster_sort = YAML.load(File.read(asset_file('sort.yml')))
-  monster_sort.values.flatten(1).each do |monster_row|
+  SORT.values.flatten(1).each do |monster_row|
     # -
     next unless monster_row
     # - grayscale: true
@@ -159,10 +162,9 @@ end
 
 desc 'Generate combined icons'
 task :combine do
-  # Read from sort.yml to get the list of combined icon.
+  # Get the list of combined icon.
   combined_icons = []
-  monster_sort = YAML.load(File.read(asset_file('sort.yml')))
-  monster_sort.values.flatten(1).each do |monster_row|
+  SORT.values.flatten(1).each do |monster_row|
     # -
     next unless monster_row
     # - combined: true
@@ -219,11 +221,9 @@ end
 desc 'Generate article based on article.yml'
 task :generate do
   puts 'Generating article...'
-  article = YAML.load(File.read(asset_file('article.yml')))
-  sort = YAML.load(File.read(asset_file('sort.yml')))
   generated_article = ''
-  article.each do |line|
-    generated_article << process(line, sort)
+  ARTICLE.each do |line|
+    generated_article << process(line)
     generated_article << '<br>'
   end
 
