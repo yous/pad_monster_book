@@ -11,6 +11,7 @@ end
 
 # Load constants from YAML files.
 SORT    = YAML.load(File.read(asset_file('sort.yml')))
+MAP     = YAML.load(File.read(asset_file('map.yml')))
 ARTICLE = YAML.load(File.read(asset_file('article.yml')))
 
 def http_get(url)
@@ -32,14 +33,19 @@ def monster_link(monster_id, grayscale: false, combined: false)
   end
 end
 
-def monster_icon_link(monster_id, grayscale: false, combined: false)
+def monster_icon(monster_id, grayscale: false, combined: false)
   if combined
-    'https://raw.githubusercontent.com/yous/pad_monster_book/master/' \
-      "assets/icons/combined/#{monster_id.join('_')}.png"
+    icon_file = monster_id.map { |id| MAP.fetch(id, id) }.join('_')
+    "icons/combined/#{icon_file}.png"
   else
-    'https://raw.githubusercontent.com/yous/pad_monster_book/master/' \
-      "assets/icons/#{'grayscale/' if grayscale}#{monster_id}.png"
+    icon_file = MAP.fetch(monster_id, monster_id)
+    "icons/#{'grayscale/' if grayscale}#{icon_file}.png"
   end
+end
+
+def monster_icon_link(monster_id, grayscale: false, combined: false)
+  'https://raw.githubusercontent.com/yous/pad_monster_book/master/assets/' +
+    monster_icon(monster_id, grayscale: grayscale, combined: combined)
 end
 
 def process(item)
@@ -130,7 +136,8 @@ task :grayscale do
     #   items: [122, 124, 126, 128, 130]
     if monster_row['grayscale']
       monster_row['items'].each do |monster_id|
-        next if File.exist?(asset_file("icons/grayscale/#{monster_id}.png"))
+        next if File.exist?(
+          asset_file(monster_icon(monster_id, grayscale: true)))
         grayscale_monster << monster_id
       end
     # - items:
@@ -140,7 +147,7 @@ task :grayscale do
       monster_row['items'].select { |x| x.is_a?(Hash) && x['grayscale'] }
         .each do |monster|
         next if File.exist?(
-          asset_file("icons/grayscale/#{monster['item']}.png"))
+          asset_file(monster_icon(monster['item'], grayscale: true)))
         grayscale_monster << monster['item']
       end
     end
@@ -152,10 +159,10 @@ task :grayscale do
   end
   puts 'Generating grayscale icons...'
   grayscale_monster.each do |monster_id|
-    image = Magick::ImageList.new(asset_file("icons/#{monster_id}.png"))
+    image = Magick::ImageList.new(asset_file(monster_icon(monster_id)))
     grayscale_image = image.cur_image.quantize(256, Magick::GRAYColorspace,
                                                Magick::NoDitherMethod)
-    grayscale_image.write(asset_file("icons/grayscale/#{monster_id}.png"))
+    grayscale_image.write(asset_file(monster_icon(monster_id, grayscale: true)))
   end
   puts 'Done.'
 end
@@ -174,7 +181,7 @@ task :combine do
     if monster_row['combined']
       monster_row['items'].each do |combined|
         next if File.exist?(
-          asset_file("icons/combined/#{combined.join('_')}.png"))
+          asset_file(monster_icon(combined, combined: true)))
         combined_icons << combined
       end
     # - items:
@@ -184,7 +191,7 @@ task :combine do
       monster_row['items'].select { |x| x.is_a?(Hash) && x['combined'] }
         .each do |monster|
         next if File.exist?(
-          asset_file("icons/combined/#{monster['item'].join('_')}.png"))
+          asset_file(monster_icon(monster['item'], combined: true)))
         combined_icons << monster['item']
       end
     end
@@ -197,8 +204,8 @@ task :combine do
   puts 'Generating combined icons...'
   combined_icons.each do |monster_ids|
     above_id, below_id = monster_ids
-    above_image = Magick::ImageList.new(asset_file("icons/#{above_id}.png"))
-    below_image = Magick::ImageList.new(asset_file("icons/#{below_id}.png"))
+    above_image = Magick::ImageList.new(asset_file(monster_icon(above_id)))
+    below_image = Magick::ImageList.new(asset_file(monster_icon(below_id)))
 
     unless above_image.columns == below_image.columns &&
       above_image.rows == below_image.rows
@@ -213,7 +220,7 @@ task :combine do
         above_image.pixel_color(x, y, below_image.pixel_color(x, y))
       end
     end
-    above_image.write(asset_file("icons/combined/#{monster_ids.join('_')}.png"))
+    above_image.write(asset_file(monster_icon(monster_ids, combined: true)))
   end
   puts 'Done.'
 end
