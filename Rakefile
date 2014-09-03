@@ -2,7 +2,7 @@
 
 require 'json'
 require 'yaml'
-require 'net/http'
+require 'open-uri'
 require 'RMagick'
 
 def asset_file(file_name)
@@ -15,10 +15,7 @@ MAP     = YAML.load(File.read(asset_file('map.yml')))
 ARTICLE = YAML.load(File.read(asset_file('article.yml')))
 
 def http_get(url)
-  url = URI.parse(url)
-  req = Net::HTTP::Get.new(url.to_s)
-  response = Net::HTTP.start(url.host, url.port) { |http| http.request(req) }
-  response.body
+  open(url).read
 end
 
 def monster_link(monster_id, grayscale: false)
