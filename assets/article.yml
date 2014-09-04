@@ -19,6 +19,10 @@
 - ['- ', anchor: 천사]
 - ['- ', anchor: 악마]
 - ['- ', anchor: 사방신]
+- ['- ', anchor: 영웅신]
+- ['- ', anchor: 삼국신]
+- ['- ', anchor: 용환사]
+- ['- ', anchor: 강림]
 -
 - ['- ', anchor: 골렘]
 - ['- ', anchor: 여친]
@@ -27,8 +31,11 @@
 - ['- ', anchor: 정령족]
 - ['- ', anchor: 라이더]
 - ['- ', anchor: 환수]
-- ['- ', anchor: 닌자]
 - ['- ', anchor: 특수회복]
+- ['- ', anchor: 닌자]
+- ['- ', anchor: 해적]
+- ['- ', anchor: 동화]
+- ['- ', anchor: 용검사]
 -
 - ['- ', anchor: 시작용]
 - ['- ', anchor: 컬러용]
@@ -45,6 +52,7 @@
 - ['- ', anchor: 해적용]
 - ['- ', anchor: 과일용]
 - ['- ', anchor: 화룡]
+- ['- ', anchor: 용기희]
 -
 - ['- ', anchor: 링]
 - ['- ', anchor: 카벙클]
@@ -53,6 +61,8 @@
 - ['- ', anchor: 파이터]
 - ['- ', anchor: 데빌]
 - ['- ', anchor: 키메라]
+- ['- ', anchor: 체이서]
+- ['- ', anchor: 페어리]
 - ['- ', anchor: 진화용]
 - ['- ', anchor: 강화합성용]
 - ['- ', anchor: 그 외]
@@ -76,11 +86,15 @@
 - ['- ', anchor: 배트맨 콜라보]
 - ['- ', anchor: 베스킨라빈스 콜라보]
 - ['- ', anchor: 앵그리버드 콜라보]
+- ['- ', anchor: 퍼즈도라Z 콜라보]
 - ['- ', anchor: 헌터X헌터 콜라보]
 - ['- ', anchor: 헬로키티 콜라보]
+- ['- ', anchor: 퍼즈도라 배틀 토너먼트 콜라보]
 - ['- ', anchor: 라그나로크 온라인 콜라보]
 - ['- ', anchor: BEAMS 콜라보]
 - ['- ', anchor: 드래곤볼 콜라보]
+- ['- ', anchor: 세인트 세이야 콜라보]
+- ['- ', anchor: 빅쿠리맨 콜라보]
 -
 - sort: 그리스로마신
 - sort: 일본신
@@ -90,6 +104,10 @@
 - sort: 천사
 - sort: 악마
 - sort: 사방신
+- sort: 영웅신
+- sort: 삼국신
+- sort: 용환사
+- sort: 강림
 -
 - sort: 골렘
 - sort: 여친
@@ -98,8 +116,11 @@
 - sort: 정령족
 - sort: 라이더
 - sort: 환수
-- sort: 닌자
 - sort: 특수회복
+- sort: 닌자
+- sort: 해적
+- sort: 동화
+- sort: 용검사
 -
 - sort: 시작용
 - sort: 컬러용
@@ -116,6 +137,7 @@
 - sort: 해적용
 - sort: 과일용
 - sort: 화룡
+- sort: 용기희
 -
 - sort: 링
 - sort: 카벙클
@@ -124,6 +146,8 @@
 - sort: 파이터
 - sort: 데빌
 - sort: 키메라
+- sort: 체이서
+- sort: 페어리
 - sort: 진화용
 - sort: 강화합성용
 - sort: 능력각성
@@ -148,8 +172,12 @@
 - sort: 배트맨 콜라보
 - sort: 베스킨라빈스 콜라보
 - sort: 앵그리버드 콜라보
+- sort: 퍼즈도라Z 콜라보
 - sort: 헌터X헌터 콜라보
 - sort: 헬로키티 콜라보
+- sort: 퍼즈도라 배틀 토너먼트 콜라보
 - sort: 라그나로크 온라인 콜라보
 - sort: BEAMS 콜라보
 - sort: 드래곤볼 콜라보
+- sort: 세인트 세이야 콜라보
+- sort: 빅쿠리맨 콜라보
