@@ -4,3 +4,6 @@ AllCops:
   Include:
     - '**/Gemfile'
     - '**/Rakefile'
+
+Style/Encoding:
+  Enabled: true
