@@ -490,6 +490,9 @@
     - grayscale: true
       item: 485
     - 485
+    - grayscale: true
+      item: 1177
+    - 1177
   - items:
     - grayscale: true
       item: 350
@@ -990,7 +993,7 @@ DDQ 콜라보:
   - items: [1309, 1311, 1313, 1316]
   -
   - items:
-    - grayscale:
+    - grayscale: true
       item: 1314
     - 1314
   - items: [1317]
