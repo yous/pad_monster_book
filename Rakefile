@@ -36,7 +36,7 @@ def monster_icon(monster_id, grayscale: false)
 end
 
 def monster_icon_link(monster_id, grayscale: false)
-  'https://raw.githubusercontent.com/yous/pad_monster_book/master/assets/' +
+  'https://github.com/yous/pad_monster_book/raw/master/assets/' +
     monster_icon(monster_id, grayscale: grayscale)
 end
 
